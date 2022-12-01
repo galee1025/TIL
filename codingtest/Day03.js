@@ -1,3 +1,11 @@
+// 나머지 구하기
+
+const solution = (num1, num2) => {
+    return num1 % num2
+}
+
+
+
 // 짝수는 싫어요
 // 내 풀이
 
