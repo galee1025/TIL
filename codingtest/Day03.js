@@ -5,7 +5,6 @@ const solution = (num1, num2) => {
 }
 
 
-
 // 짝수는 싫어요
 // 내 풀이
 
