@@ -19,3 +19,59 @@ const solution = my_string => {
 // 다른 사람 풀이
 // : eval() 수학 수식이 문자열 형식으로 들어오면 해당 수식을 계산한 결과를 반환
 var solution = eval
+
+
+
+// 편지
+// 내 풀이
+const solution = (message) => {
+  return [...message].length*2;
+}
+
+
+
+// 가장 큰 수 찾기
+// 내 풀이
+const solution = array => {
+  let answer = [];
+  array.map((v,i) => {
+    if(Math.max(...array) === v) {
+      answer.push(v,i);
+    }
+  })
+  return answer;
+}
+
+// 다른 사람 풀이
+function solution(array) {
+    let max = Math.max(...array);
+    return [max, array.indexOf(max)];
+}
+
+
+
+// 배열의 유사도
+// 내 풀이
+function solution(s1, s2) {
+    let answer = 0;
+    for(let i of s1) {
+        if(s2.includes(i)) {
+          answer += 1;
+        }
+    }
+  return answer;
+}
+
+// 다른 사람 풀이 : for문!
+function solution(s1, s2) {
+    var answer = 0;
+    for (var i = 0; i < s1.length; i++){
+        for (var j = 0; j < s2.length; j++){
+            if(s1[i] === s2[j]) answer++;
+        }
+    }
+    return answer;
+}
+
+
+
