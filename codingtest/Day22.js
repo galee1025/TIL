@@ -20,3 +20,61 @@ function solution(a,b) {
 function solution(a, b) {
     return (a/b).toString().length > 10 ? 2 : 1
 }
+
+
+
+// 겹치는 선분의 길이
+// 내 풀이
+const solution = (lines) => {
+  let newLines = [];
+  let answer = [];
+  
+  lines.forEach((v, idx) => {
+    for(let j=v[0]; j<v[1]; j++) {
+      newLines.push(j);
+    }
+  });
+  
+  newLines.sort();
+    
+  for(let item of newLines) {
+    if(newLines.indexOf(item) !== newLines.lastIndexOf(item)) {
+      answer.push(item);
+    }
+  }
+  
+  answer = new Set(answer);
+  return [...answer].length;
+}
+
+// 다른 풀이
+function solution(lines) {
+    let min = Math.min(...lines.flat());
+    let max = Math.max(...lines.flat());
+    let arr = Array(max-min+1).fill(0);
+
+    for (let line of lines) {
+        line.sort((a,b)=>a-b);
+        if (min < 0) {
+            line[0]+=Math.abs(min)
+            line[1]+=Math.abs(min)
+        }
+        for (let i = line[0]; i < line[1]; i++) arr[i]++;
+    }
+
+    return arr.filter(v=>v>1).length;
+}
+
+// 다른 풀이 2
+function solution(lines) {
+    let line = new Array(200).fill(0);
+
+    lines.forEach(([a, b]) => {
+        for(; a < b; a++) line[a+100]++;
+    });
+
+    return line.reduce((a, c) =>  c > 1 ? a + 1 : a, 0)
+}
+
+
+
