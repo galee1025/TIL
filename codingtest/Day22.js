@@ -78,3 +78,25 @@ function solution(lines) {
 
 
 
+// 🤯 평행
+// 찾아본 풀이 : 기울기를 배열에 넣어 비교
+function solution(dots) {
+    const Arr = []
+    for(let i=0; i<dots.length; i++) {
+        for(let j=i+1; j<dots.length; j++) {
+            const slope = (dots[i][1]-dots[j][1])/(dots[i][0]-dots[j][0])
+            if(Arr.includes(slope)) return 1
+            Arr.push(slope)
+        }
+    }
+    return 0
+}
+
+// 다른 풀이
+const solution = ([[x1, y1], [x2, y2], [x3, y3], [x4, y4]]) => {
+    if((y1 - y2) / (x1 - x2) === (y3 - y4) / (x3 - x4)) return 1;
+    if((y1 - y3) / (x1 - x3) === (y2 - y4) / (x2 - x4)) return 1;
+    if((y1 - y4) / (x1 - x4) === (y2 - y3) / (x2 - x3)) return 1;
+    return 0;
+}
+
